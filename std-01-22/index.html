@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+
+<body>
+  <div id="root">
+    <ul>
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
+      <li>item4</li>
+      <li>item5</li>
+      <li>item6</li>
+      <li>item7</li>
+      <li>item8</li>
+      <li>item9</li>
+      <li>item10</li>
+    </ul>
+  </div>
+
+  <script src="obj.js"></script>
+
+  <script>
+    let lists = document.getElementsByTagName("li");
+    console.log(lists);
+
+    let i = 0;
+    function yesMan(array, target, i) {
+      // call 함수에 있는 for문으로 index 받아와서 상태 변경
+      array[i].textContent = target;
+    }
+
+    function call() {
+      for (let index = 0; index < lists.length; index++) {
+        // for문에 index를 yesMan에 줘서 상태 변경
+        yesMan(lists, trainingDummyData[index].name, index);
+
+      }
+    }
+    call()
+
+    // for이 yseMan 초기화때문에 다시 0부터 시작되는 문제는 count로 상태 변경해줘서 처리 가능할듯
+    // arraylike / 고차함수
+
+  </script>
+</body>
+
+</html>

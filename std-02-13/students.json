@@ -1,0 +1,81 @@
+[
+    {
+        "order": 1,
+        "name": "김민지",
+        "food": { "like": ["짜장면", "짬뽕"], "hate": ["피자"] }
+    },
+    {
+        "order": 2,
+        "name": "김요훈",
+        "food": { "like": ["햄버거", "초밥"], "hate": ["라면"] }
+    },
+    {
+        "order": 3,
+        "name": "김윤지",
+        "food": { "like": ["피자", "라면"], "hate": ["떡볶이"] }
+    },
+    {
+        "order": 4,
+        "name": "김재승",
+        "food": { "like": ["초밥", "떡볶이"], "hate": ["짜장면"] }
+    },
+    {
+        "order": 5,
+        "name": "손정민",
+        "food": { "like": ["짜장면", "파스타"], "hate": ["짬뽕"] }
+    },
+    {
+        "order": 6,
+        "name": "안은별",
+        "food": { "like": ["짬뽕", "김밥"], "hate": ["초밥"] }
+    },
+    {
+        "order": 7,
+        "name": "윤종환",
+        "food": { "like": ["피자", "치킨"], "hate": ["햄버거"] }
+    },
+    {
+        "order": 8,
+        "name": "최정민",
+        "food": { "like": ["햄버거", "라면"], "hate": ["파스타"] }
+    },
+    {
+        "order": 9,
+        "name": "최현준",
+        "food": { "like": ["짜장면", "떡볶이"], "hate": ["김밥"] }
+    },
+    {
+        "order": 10,
+        "name": "전선일",
+        "food": { "like": ["초밥", "파스타"], "hate": ["피자"] }
+    },
+    { "order": 11, "name": "qq", "food": { "like": ["qq"], "hate": ["qq"] } },
+    { "order": 12, "name": "qq", "food": { "like": ["qq"], "hate": ["qq"] } },
+    {
+        "order": 13,
+        "name": "wqe",
+        "food": { "like": ["wqe"], "hate": ["weq"] }
+    },
+    {
+        "order": 14,
+        "name": "wqe",
+        "food": { "like": ["wqe"], "hate": ["wqe"] }
+    },
+    { "order": 15, "name": "ㅂ", "food": { "like": ["ㅂ"], "hate": ["ㅂ"] } },
+    {
+        "order": 16,
+        "name": "ㅂㅂ",
+        "food": { "like": ["ㅂㅂ"], "hate": ["ㅂㅂ"] }
+    },
+    { "order": 17, "name": "ㅂ", "food": { "like": ["ㅂ"], "hate": ["ㅂ"] } },
+    {
+        "order": 18,
+        "name": "김재승",
+        "food": { "like": ["김재승"], "hate": ["김재승"] }
+    },
+    {
+        "order": 19,
+        "name": "ㅂㅂㅂ11",
+        "food": { "like": ["ㅂㅂㅂ11"], "hate": ["ㅂㅂㅂ11"] }
+    }
+]
