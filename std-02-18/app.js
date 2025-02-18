@@ -12,15 +12,15 @@ const server = http.createServer(function (request, response) {
             response.writeHead(200, { "content-type": "text/html" });
             response.end(mainpage);
         }
-        if (request.url === "/about?") {
+    }
+    if (request.method === "POST") {
+        if (request.url === "/about") {
             // console.log(pathbasename);
             console.log(request.url.endsWith(""));
             const mainpage = fs.readFileSync("about.html", "utf8");
             response.writeHead(200, { "content-type": "text/html" });
             response.end(mainpage);
         }
-    }
-    if (request.method === "POST") {
     }
 });
 
