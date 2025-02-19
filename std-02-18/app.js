@@ -21,21 +21,25 @@ const server = http.createServer(function (request, response) {
     }
     if (request.method === "POST") {
         if (request.url === "/") {
-            // let body = "";
+            let body = "";
             request.on("data", function (data) {
-                const dataStr = data.toString();
+                body += data;
+            });
+            request.on("end", function () {
+                // const formData = qs.parse(body);
+
+                // console.log(formData);
+                // console.log(body);
+                // console.log(arr);
+                const dataStr = body.toString();
                 const formdataStr = JSON.stringify(dataStr);
                 const formData = JSON.parse(formdataStr);
-                fs.writeFileSync("data.json", formData);
-                console.log(formData);
+                arr.push(formData);
+                console.log(arr);
+                fs.appendFile("data.json", JSON.stringify(arr), () => {
+                    console.log("성공");
+                });
             });
-            // request.on("end", function () {
-            //     // const formData = qs.parse(body);
-            //     // arr.push(formData);
-            //     // console.log(formData);
-            //     // console.log(body);
-            //     // console.log(arr);
-            // });
             console.log(request.url);
             fs.readFile("index.html", "utf8", (mainpage) => {
                 response.writeHead(200, { "content-type": "text/html" });
