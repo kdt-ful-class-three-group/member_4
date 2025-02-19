@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const qs = require("querystring");
 const { json } = require("stream/consumers");
+// const js = require();
 let arr = [];
 const server = http.createServer(function (request, response) {
     if (request.method === "GET") {
@@ -20,17 +21,21 @@ const server = http.createServer(function (request, response) {
     }
     if (request.method === "POST") {
         if (request.url === "/") {
-            let body = "";
+            // let body = "";
             request.on("data", function (data) {
-                body += data;
-            });
-            request.on("end", function () {
-                const formData = qs.parse(body);
-                arr.push(formData);
+                const dataStr = data.toString();
+                const formdataStr = JSON.stringify(dataStr);
+                const formData = JSON.parse(formdataStr);
+                fs.writeFileSync("data.json", formData);
                 console.log(formData);
-                console.log(body);
-                console.log(arr);
             });
+            // request.on("end", function () {
+            //     // const formData = qs.parse(body);
+            //     // arr.push(formData);
+            //     // console.log(formData);
+            //     // console.log(body);
+            //     // console.log(arr);
+            // });
             console.log(request.url);
             fs.readFile("index.html", "utf8", (mainpage) => {
                 response.writeHead(200, { "content-type": "text/html" });
