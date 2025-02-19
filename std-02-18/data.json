@@ -1,1 +1,18 @@
-[{"input":"wqeqwe"}]
+[
+  {
+    "input": "asdasd"
+  },
+  {
+    "input": "qweqwe"
+  },
+  {
+    "input": "wqeqwe"
+  },
+  {
+    "input": "qweqwe"
+  },
+  {
+    "input": "wqeqwe",
+    "name": "wqeqweqwe"
+  }
+]
