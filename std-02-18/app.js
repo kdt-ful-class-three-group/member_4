@@ -31,12 +31,13 @@ const server = http.createServer(function (request, response) {
                 // console.log(formData);
                 // console.log(body);
                 // console.log(arr);
-                const dataStr = body.toString();
-                const formdataStr = JSON.stringify(dataStr);
+                // const dataStr = body.toString();
+                const qsdata = qs.parse(body);
+                const formdataStr = JSON.stringify(qsdata);
                 const formData = JSON.parse(formdataStr);
                 arr.push(formData);
-                console.log(arr);
-                fs.appendFile("data.json", JSON.stringify(arr), () => {
+                console.log(formdataStr);
+                fs.writeFile("data.json", JSON.stringify(arr, 2), () => {
                     console.log("성공");
                 });
             });
