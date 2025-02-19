@@ -20,7 +20,7 @@ const server = http.createServer(function (request, response) {
         }
     }
     if (request.method === "POST") {
-        if (request.url === "/") {
+        if (request.url === "/about") {
             let body = "";
             request.on("data", function (data) {
                 body += data;
@@ -32,17 +32,18 @@ const server = http.createServer(function (request, response) {
                 // console.log(body);
                 // console.log(arr);
                 // const dataStr = body.toString();
-                const qsdata = qs.parse(body);
-                const formdataStr = JSON.stringify(qsdata);
-                const formData = JSON.parse(formdataStr);
-                arr.push(formData);
+                const qsdata = qs.parse(body); // form data를 객체로 반환해준다.
+                const formdataStr = JSON.stringify(qsdata); // form data JSON 문자열로 변경해준다.
+                const formData = JSON.parse(formdataStr); // orm data JSON 문자열을 json형식으로 변경한다.
+                arr.push(formData); // 배열로 만들어서
                 console.log(formdataStr);
                 fs.writeFile("data.json", JSON.stringify(arr, 2), () => {
+                    // json 파일에 보내준다.
                     console.log("성공");
                 });
             });
             console.log(request.url);
-            fs.readFile("index.html", "utf8", (mainpage) => {
+            fs.readFile("about.html", "utf8", (mainpage) => {
                 response.writeHead(200, { "content-type": "text/html" });
                 response.end(mainpage);
             });
