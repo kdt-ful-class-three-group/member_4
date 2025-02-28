@@ -9,9 +9,9 @@ function writeJson(bodyData) {
     // console.log(bodyDataJsonParse);
     const previousJson = fs.readFileSync("src/json/data.json", "utf-8");
     if (bodyData) {
-        bodyData.id = jsonArr.length + 1;
         jsonArr = JSON.parse(previousJson);
         jsonArr.push(bodyData); // 기존 데이터 유지
+        bodyData.id = jsonArr.length; // jsonArr.push(bodyData); 이것보다 위로가면 length 못가져옴
     } else {
         // data.json에 데이터가 없으면 실행
         jsonArr = [];
