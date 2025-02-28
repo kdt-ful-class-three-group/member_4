@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const qs = require("querystring");
 const { json } = require("stream/consumers");
+
 // const dataJson = require("data.json");
 
 let body = "";
@@ -12,7 +13,6 @@ const server = http.createServer(function (request, response) {
         if (request.url === "/") {
             // console.log(request.url);
             const mainpage = fs.readFileSync("index.html", "utf8");
-
             response.writeHead(200, { "content-type": "text/html" });
             response.end(mainpage);
             // } else if (request.url === "/about.html") {

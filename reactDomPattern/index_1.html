@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학생 정보 테이블</title>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
+    }
+
+    .grid-header,
+    .grid-cell {
+      background-color: white;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .grid-header {
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    const students = [
+      { order: 1, name: "김민지", food: { like: ["짜장면", "짬뽕"], hate: ["피자"] } },
+      { order: 2, name: "김요훈", food: { like: ["햄버거", "초밥"], hate: ["라면"] } },
+      { order: 3, name: "김윤지", food: { like: ["피자", "라면"], hate: ["떡볶이"] } },
+      { order: 4, name: "김재승", food: { like: ["초밥", "떡볶이"], hate: ["짜장면"] } },
+      { order: 5, name: "손정민", food: { like: ["짜장면", "파스타"], hate: ["짬뽕"] } },
+      { order: 6, name: "안은별", food: { like: ["짬뽕", "김밥"], hate: ["초밥"] } },
+      { order: 7, name: "윤종환", food: { like: ["피자", "치킨"], hate: ["햄버거"] } },
+      { order: 8, name: "최정민", food: { like: ["햄버거", "라면"], hate: ["파스타"] } },
+      { order: 9, name: "최현준", food: { like: ["짜장면", "떡볶이"], hate: ["김밥"] } },
+      { order: 10, name: "전선일", food: { like: ["초밥", "파스타"], hate: ["피자"] } },
+    ];
+
+    const root = document.getElementById("root");
+
+    function checkpoint() {
+      console.log("디버깅: checkpoint 함수 시작");
+      const gridContainer = document.createElement("div");
+      gridContainer.className = "grid-container";
+
+      let gridHeader = ["순서", "이름", "좋아하는 음식", "싫어하는 음식"];
+
+      gridHeader.forEach((headerText) => {
+        const headerCell = document.createElement("div");
+        headerCell.className = "grid-header";
+        headerCell.textContent = headerText;
+        gridContainer.appendChild(headerCell);
+      });
+
+      const createCell = (content) => {
+        const cell = document.createElement("div");
+        cell.className = "grid-cell";
+        cell.textContent = content;
+        return cell;
+      };
+
+      students.forEach((student) => {
+        const cellContents = [
+          student.order,
+          student.name,
+          student.food.like.join(", "),
+          student.food.hate.join(", "),
+        ];
+
+        cellContents.map(createCell).forEach((cell) => gridContainer.appendChild(cell));
+        console.log(cellContents.map(createCell))
+      });
+
+      console.log("디버깅: 그리드 생성 완료", gridContainer);
+      return gridContainer;
+    }
+
+    const studentGrid = checkpoint();
+    root.appendChild(studentGrid);
+    console.table(students);
+    console.log("디버깅: 학생 정보 그리드 DOM에 추가 완료");
+  </script>
+</body>
+
+</html>

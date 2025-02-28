@@ -12,9 +12,10 @@ import path from "path";
 import querystring from "querystring";
 
 const __dirname = path.resolve(); // 디렉토리 경로
-let endsWith = req.url.endsWith(".js"); // 해당 디렉토리경로 파일 요총이 js이면
+// let endsWith = req.url.endsWith(".js"); // 해당 디렉토리경로 파일 요총이 js이면
 function saveToJSON(data, callback) {
     const filePath = path.join(__dirname, "students.json");
+    console.log(filePath);
     fs.writeFile(
         filePath,
         JSON.stringify(data, null, 2),
@@ -195,7 +196,7 @@ const server = http.createServer(function (req, res) {
     }
 });
 
-const PORT = 3000;
+const PORT = 3005;
 server.listen(PORT, function () {
     console.log("서버가 http://localhost:" + PORT + " 에서 실행 중입니다.");
 });
