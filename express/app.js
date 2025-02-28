@@ -11,9 +11,13 @@ app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use(express.static("src"));
 
-// app.get("/", (req, res) => {
-//     res.send("Hello, Express!");
-// });
+app.get("/data", (req, res) => {
+    const jsonData = fs.readFileSync("src/json/data.json", "utf8");
+    res.writeHead(200, { "content-type": "application/json" }, () => {
+        console.log("성공");
+    });
+    res.end(jsonData);
+});
 
 app.post("/update", (req, res) => {
     let bodyData = req.body;
