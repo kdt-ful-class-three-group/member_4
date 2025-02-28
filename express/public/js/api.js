@@ -1,8 +1,15 @@
 console.log("연결완");
-fetch("http://localhost:3001/data")
+
+fetch("data")
     .then((res) => {
-        res.json;
+        return res.json();
     })
     .then((data) => {
-        console.log(data);
+        apiFetch(data);
     });
+function apiFetch(data) {
+    let apiList = document.getElementById("apiList");
+    data.forEach((element) => {
+        apiList.innerHTML += `<p>${element.id}</p><p>${element.inputName}</p>`;
+    });
+}

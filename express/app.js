@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use(express.static("src"));
-
+//json
 app.get("/data", (req, res) => {
     const jsonData = fs.readFileSync("src/json/data.json", "utf8");
     res.writeHead(200, { "content-type": "application/json" }, () => {
@@ -18,7 +18,7 @@ app.get("/data", (req, res) => {
     });
     res.end(jsonData);
 });
-
+// 추가
 app.post("/update", (req, res) => {
     let bodyData = req.body;
     console.log(bodyData);
