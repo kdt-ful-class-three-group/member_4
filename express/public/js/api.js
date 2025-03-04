@@ -1,3 +1,4 @@
+import apiMainList from "./apiMainList.js";
 console.log("연결완");
 
 fetch("data")
@@ -5,11 +6,6 @@ fetch("data")
         return res.json();
     })
     .then((data) => {
-        apiFetch(data);
+        console.log(data);
+        apiMainList(data);
     });
-function apiFetch(data) {
-    let apiList = document.getElementById("apiList");
-    data.forEach((element) => {
-        apiList.innerHTML += `<p>${element.id}</p><p>${element.inputName}</p>`;
-    });
-}
